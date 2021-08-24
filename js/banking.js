@@ -1,57 +1,54 @@
+// ▓▒▒▒▒▒▒▒▒▒▒▒《 SLECET THE BUTTONS 》▒▒▒▒▒▒▒▒▒▒▒▓
+const depositBtn = document.getElementById("deposit-button");
+const withdrawBtn = document.getElementById("withdraw-button");
 
 
-// Deposit Function 😃 (Pretty Hard But if you are a beginner)
-document.getElementById("deposit-button").addEventListener('click', function(){
-    // get the deposit input value;
-    const depositField = document.getElementById("deposit-amount");
-    const depositAmountText = depositField.value;
-    const depositAmount = parseFloat(depositAmountText);
-    // console.log(depositAmount);
-
-    // get the current value and diposited amount;
+// ▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒❖《 EVENT LISTENERS FUNCTIONS 》❖▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓
+depositBtn.addEventListener("click", function(){
+    // Select Deposit Current Total Amount
     const depositTotal = document.getElementById("deposit-total");
-    const previousDepositText = depositTotal.innerText;
-    const previousDepositAmount = parseFloat(previousDepositText);
-
-    const newDepositTotal = previousDepositAmount + depositAmount;
-    depositTotal.innerText = newDepositTotal;
-
-    // Update account Balance.
+    const depositTotalText = depositTotal.innerText;
+    const depositTotalNumber = parseFloat(depositTotalText);
+    // Select the value of Deposit Amount input field
+    const newDeposit = document.getElementById("deposit-amount");
+    const newDepositText = newDeposit.value;
+    const newDepositNumber = parseFloat(newDepositText);
+    // Add Current Deposit and new Deposit;
+    depositTotal.innerText = depositTotalNumber + newDepositNumber;
+    // Clean the deposit input value;
+    newDeposit.value = "";
+    // ==============================WORK WITH BALANCE FOR DEPOSIT================================= //
+    // Select Balance Current Total Amount
     const balanceTotal = document.getElementById("balance-total");
-    const previousBalanceTotalText = balanceTotal.innerText;
-    const previousBalanceTotal = parseFloat(previousBalanceTotalText);
-
-    const newBalanceTotal = previousBalanceTotal + depositAmount;
-    balanceTotal.innerText = newBalanceTotal;
-
-    // clear the deposit field 
-    depositField.value = '';
+    const balanceTotalText = balanceTotal.innerText;
+    const balanceTotalNumber = parseFloat(balanceTotalText);
+    // Add Current Deposit and Update the Balance;
+    balanceTotal.innerText = newDepositNumber + balanceTotalNumber;
 });
 
-// Withdraw Function (Pretty simple if you undrastand the previous function 😃)
-document.getElementById("withdraw-button").addEventListener('click', function(){
-   // get the withdraw value from withdraw input
-    const withDrawAmountField = document.getElementById("withdraw-amount");
-    const withDrawAmountText = withDrawAmountField.value;
-    const withDrawAmount = parseFloat(withDrawAmountText);
 
-    // get the withdraw current value;
-    const withDrawCurrent = document.getElementById("withdraw-total");
-    const withDrawCurrentText = withDrawCurrent.innerText;
-    const withDrawCurrentAmount = parseFloat(withDrawCurrentText);
-
-    const totalWithdraw = withDrawAmount + withDrawCurrentAmount;
-    withDrawCurrent.innerText = totalWithdraw;
-
-    // Update account Balance.
+withdrawBtn.addEventListener("click", function(){
+    // Select Withdraw Current Total Amount
+    const withdrawTotal = document.getElementById("withdraw-total");
+    const withdrawTotalText = withdrawTotal.innerText;
+    const withdrawTotalNumber = parseFloat(withdrawTotalText);
+   // Select the value of Withdraw Amount input field
+   const newWithdraw = document.getElementById("withdraw-amount");
+   const newWithdrawText = newWithdraw.value;
+   const newWithdrawNumber = parseFloat(newWithdrawText);
+   // Add Current Deposit and new Deposit;
+   withdrawTotal.innerText = withdrawTotalNumber + newWithdrawNumber;
+   // Clean the Withdraw input value;
+   newWithdraw.value = "";
+// ==============================》WORK WITH BALANCE FOR WITHDRAW《================================= //
+    // Select Balance Current Total Amount
     const balanceTotal = document.getElementById("balance-total");
-    const previousBalanceTotalText = balanceTotal.innerText;
-    const previousBalanceTotal = parseFloat(previousBalanceTotalText);
+    const balanceTotalText = balanceTotal.innerText;
+    const balanceTotalNumber = parseFloat(balanceTotalText);
+    // Add Current Deposit and Update the Balance;
+    balanceTotal.innerText = balanceTotalNumber - newWithdrawNumber;
+})
 
-    const newBalanceTotal = previousBalanceTotal - totalWithdraw;
-    balanceTotal.innerText = newBalanceTotal;
 
-    // clear the withdraw field
-    withDrawAmountField.value = '';
+// ▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ REFACTORING CODE ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓
 
-});
